@@ -7,7 +7,10 @@ export default (OriginalComponent) =>
     state = {
       isOpen: false
     }
-    toggleOpenItem = () => this.setState({ isOpen: !this.state.isOpen })
+    toggleOpenItem = () =>
+      this.setState({
+        isOpen: !this.state.isOpen
+      })
 
     render() {
       return (

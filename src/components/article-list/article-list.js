@@ -10,10 +10,10 @@ export class ArticleList extends Component {
   static propTypes = {
     articles: PropTypes.array.isRequired,
     fetchData: PropTypes.func,
-
     //from accordion decorator
     openItemId: PropTypes.string,
-    toggleOpenItem: PropTypes.func.isRequired
+    toggleOpenItem: PropTypes.func.isRequired,
+    toggleCommentBlock: PropTypes.func.isRequired
   }
 
   componentDidMount() {
@@ -31,6 +31,7 @@ export class ArticleList extends Component {
           article={item}
           isOpen={this.props.openItemId === item.id}
           toggleOpen={this.props.toggleOpenItem}
+          toggleCommentBlock={this.props.toggleCommentBlock}
         />
       </li>
     ))

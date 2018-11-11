@@ -5,16 +5,11 @@ import React, { Component } from 'react'
 export default (OriginalComponent) =>
   class DecoratedComponent extends Component {
     state = {
-      openItemId: null,
-      openCommentForm: null
+      isOpenCommentTextArea: false
     }
-    toggleOpenItem = (openItemId, openCommentForm) =>
+    toggleCommentBlock = () =>
       this.setState({
-        openItemId: openItemId === this.state.openItemId ? null : openItemId,
-        openCommentForm:
-          openCommentForm === this.state.openCommentForm
-            ? null
-            : openCommentForm
+        isOpenCommentTextArea: !this.state.isOpenCommentTextArea
       })
 
     render() {
@@ -22,7 +17,6 @@ export default (OriginalComponent) =>
         <OriginalComponent
           {...this.props}
           {...this.state}
-          toggleOpenItem={this.toggleOpenItem}
           toggleCommentBlock={this.toggleCommentBlock}
         />
       )
